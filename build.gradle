@@ -1,18 +1,12 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.9'
-    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
-
-//dependencies{
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    runtimeOnly 'mysql:mysql-connector-java'
-//}
 
 allprojects {
     repositories {
         mavenCentral()
-
     }
 }
 
@@ -22,7 +16,6 @@ bootJar {
 
 jar {
     enabled = false
-
 }
 
 group = 'org.sake'

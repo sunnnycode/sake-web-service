@@ -1,12 +1,16 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'org.sake'
 version = '1.0-SNAPSHOT'
-sourceCompatibility = '11'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
 
 configurations {
     compileOnly {
@@ -20,34 +24,36 @@ repositories {
 
 dependencies {
     implementation project(':api')
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // Spring Security (6.x)
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    // thymeleaf
+    // Thymeleaf (with Spring Security 6.x support)
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE' // ✅ 교체
 
-    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
-    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
-
-
+    // RabbitMQ
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    // Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Swagger (springdoc-openapi)
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0' // ✅ 교체
+
+    // Module Dependencies
     implementation project(':db')
     implementation project(':common')
 
-    //jpa
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-    // swagger
-    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.8.0'
-
-
-
-
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
