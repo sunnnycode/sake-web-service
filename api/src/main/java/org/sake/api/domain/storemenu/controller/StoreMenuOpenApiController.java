@@ -7,7 +7,7 @@ import org.sake.api.domain.storemenu.controller.model.StoreMenuRegisterRequest;
 import org.sake.api.domain.storemenu.controller.model.StoreMenuResponse;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController

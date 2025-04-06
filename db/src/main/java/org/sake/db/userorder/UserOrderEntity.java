@@ -1,6 +1,8 @@
 package org.sake.db.userorder;
 
-import com.sun.istack.NotNull;
+import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,7 +11,6 @@ import lombok.experimental.SuperBuilder;
 import org.sake.db.BaseEntity;
 import org.sake.db.userorder.enums.UserOrderStatus;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

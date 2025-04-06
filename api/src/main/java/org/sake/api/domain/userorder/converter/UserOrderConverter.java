@@ -6,7 +6,7 @@ import org.sake.api.domain.userorder.controller.model.UserOrderResponse;
 import org.sake.db.storemenu.StoreMenuEntity;
 import org.sake.db.userorder.UserOrderEntity;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 

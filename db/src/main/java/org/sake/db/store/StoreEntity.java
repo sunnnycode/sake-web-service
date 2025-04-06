@@ -9,7 +9,7 @@ import org.sake.db.BaseEntity;
 import org.sake.db.store.enums.StoreCategory;
 import org.sake.db.store.enums.StoreStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Data

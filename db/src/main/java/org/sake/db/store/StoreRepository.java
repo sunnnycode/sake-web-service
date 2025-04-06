@@ -4,7 +4,7 @@ import org.sake.db.store.enums.StoreCategory;
 import org.sake.db.store.enums.StoreStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.Entity;
+import jakarta.persistence.*;
 import java.util.List;
 import java.util.Optional;
 

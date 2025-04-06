@@ -9,7 +9,7 @@ import org.sake.db.BaseEntity;
 import org.sake.db.storeuser.enums.StoreUserRole;
 import org.sake.db.storeuser.enums.StoreUserStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @SuperBuilder
