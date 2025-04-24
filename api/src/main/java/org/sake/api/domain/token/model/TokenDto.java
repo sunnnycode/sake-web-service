@@ -13,6 +13,10 @@ import java.time.LocalDateTime;
 @Builder
 
 public class TokenDto {
-    private String token;
-    private LocalDateTime expiredAt;
+
+    private String accessToken;
+    private String refreshToken;
+    private LocalDateTime accessTokenExpiredAt;
+    private LocalDateTime refreshTokenExpiredAt;
+
 }

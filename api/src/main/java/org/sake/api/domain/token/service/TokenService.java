@@ -20,16 +20,15 @@ public class TokenService {
     private final TokenHelperIfs tokenHelperIfs;
 
     public TokenDto issueAccessToken(Long userId){
-        var data = new HashMap<String, Object>();
-        data.put("userId", userId);
-        return tokenHelperIfs.issueAccessToken(data);
+
+
+        return tokenHelperIfs.issueAccessToken(userId);
 
     }
 
     public TokenDto issueRefreshToken(Long userId){
-        var data = new HashMap<String, Object>();
-        data.put("userId", userId);
-        return tokenHelperIfs.issueAccessToken(data);
+
+        return tokenHelperIfs.issueRefreshToken(userId);
 
     }
 

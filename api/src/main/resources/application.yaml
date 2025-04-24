@@ -1,7 +1,7 @@
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
 
@@ -22,9 +22,12 @@ token:
     secret:
       key: ${TOKEN_SECRET_KEY}
     access-token:
-      plus-hour: 1
+      plus-hour: ${TOKEN_ACCESS_PLUS_HOUR}
     refresh-token:
-      plus-hour: 12
+      plus-hour: ${TOKEN_REFRESH_PLUS_HOUR}
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
 
 
 

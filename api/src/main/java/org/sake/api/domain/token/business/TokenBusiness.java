@@ -28,8 +28,8 @@ public class TokenBusiness {
     public TokenResponse issueToken(UserEntity userEntity){
 
         return Optional.ofNullable(userEntity)
-                .map(ue -> {
-                    return ue.getId();
+                .map(user -> {
+                    return user.getId();
                 })
                 .map(userId -> {
                     var accessToken = tokenService.issueAccessToken(userId);
