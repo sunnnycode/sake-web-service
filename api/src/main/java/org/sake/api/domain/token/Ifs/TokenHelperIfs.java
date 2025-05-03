@@ -9,7 +9,7 @@ public interface TokenHelperIfs {
 
     TokenDto issueAccessToken(Long userId);
     TokenDto issueRefreshToken(Long userId);
+    String validationTokenWithThrow(String token);
 
-    Map<String, Object> validationTokenWithThrow(String token);
 
 }

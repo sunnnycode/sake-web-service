@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-public class TokenResponse {
+@Getter
+public class TokenRequest {
 
     private String accessToken;
 

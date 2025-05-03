@@ -12,20 +12,20 @@ import org.sake.api.domain.token.Ifs.TokenHelperIfs;
 import org.sake.api.domain.token.entity.RefreshToken;
 import org.sake.api.domain.token.entity.RefreshTokenRepository;
 import org.sake.api.domain.token.model.TokenDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
 public class JwtTokenHelper implements TokenHelperIfs {
 
-    private final RefreshTokenRepository refreshTokenRepository;
+    @Autowired
+    private RefreshTokenRepository refreshTokenRepository;
 
     @Value("${TOKEN_SECRET_KEY}")
     private String secretKey;
@@ -100,7 +100,7 @@ public class JwtTokenHelper implements TokenHelperIfs {
 
     // token 검증
     @Override
-    public Map<String, Object> validationTokenWithThrow(String token) {
+    public String validationTokenWithThrow(String token) {
         var key = Keys.hmacShaKeyFor(secretKey.getBytes());
 
         var parser = Jwts.parserBuilder()
@@ -109,7 +109,7 @@ public class JwtTokenHelper implements TokenHelperIfs {
 
         try{
             var result = parser.parseClaimsJws(token);
-            return new HashMap<String, Object>(result.getBody());
+            return result.getBody().getSubject();
 
         }catch (Exception e){
             if(e instanceof SignatureException){
@@ -117,7 +117,7 @@ public class JwtTokenHelper implements TokenHelperIfs {
                 throw new ApiException(TokenErrorCode.INVALID_TOKEN);
             }
             else if(e instanceof ExpiredJwtException){
-                // 만료된 토큰
+                // 토큰이 만료되었을 때
                 throw new ApiException(TokenErrorCode.EXPIRED_TOKEN);
             }
             else{
@@ -126,4 +126,5 @@ public class JwtTokenHelper implements TokenHelperIfs {
             }
         }
     }
+
 }

@@ -16,7 +16,9 @@ public enum TokenErrorCode implements ErrorCodeIfs {
 
     TOKEN_EXCEPTION(400, 2002, "토큰 알 수 없는 에러"),
 
-    AUTHORIZATION_TOKEN_NOT_FOUND(400, 2003,"인증 헤더 토큰 없음")
+    AUTHORIZATION_TOKEN_NOT_FOUND(400, 2003,"인증 헤더 토큰 없음"),
+
+    TOKEN_MISMATCH(400, 2003, "토큰 불일치")
     ;
 
     private final Integer httpStatusCode;
