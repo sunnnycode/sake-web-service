@@ -1,11 +1,11 @@
 package org.sake.api.common.api;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.sake.api.common.error.ErrorCodeIfs;
 
-import javax.validation.Valid;
 
 @Data
 @NoArgsConstructor

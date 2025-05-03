@@ -1,5 +1,6 @@
 package org.sake.db.userordermenu;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 import org.sake.db.BaseEntity;
 import org.sake.db.userordermenu.enums.UserOrderMenuStatus;
 
-import javax.persistence.*;
 
 @Data
 @NoArgsConstructor

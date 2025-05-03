@@ -1,16 +1,3 @@
-#logging:
-#  level:
-#    org:
-#      springframework:
-#        web: DEBUG
-#      hibernate: DEBUG
-
-#http:
-#  encoding:
-#    charset: UTF-8
-#    enabled: true
-#    force: true
-
 server:
   port: 8082
 
@@ -20,8 +7,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: admin
-    password: admin123!@#
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
 
 
   jpa:
@@ -30,15 +17,12 @@ spring:
     properties:
       format_sql: true
       dialect: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: validate
-  # 깃허브에 절대 공유 X
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://database-sakesage.c3suqkcwcjd4.ap-northeast-2.rds.amazonaws.com:3306/sakesage?serverTimezone=Asia/Seoul&characterEncoding=UTF-8 #aws
-    #jdbc:mysql://localhost:3306/sake?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
-    username: admin
-    password: tkzptkzptkrp24 #사케사케사게24 -영어
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
 
 

@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 import org.sake.db.BaseEntity;
 import org.sake.db.storemenu.enums.StoreMenuStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Data

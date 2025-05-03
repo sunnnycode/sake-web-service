@@ -13,8 +13,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 @Slf4j
@@ -38,7 +38,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         }
 
 
-        var accessToken = request.getHeader("authorization-token");
+        var accessToken = request.getHeader("Authorization");
         if(accessToken == null){
             throw new ApiException(TokenErrorCode.AUTHORIZATION_TOKEN_NOT_FOUND);
         }

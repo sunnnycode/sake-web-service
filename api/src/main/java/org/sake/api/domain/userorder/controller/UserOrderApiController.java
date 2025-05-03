@@ -11,7 +11,7 @@ import org.sake.api.domain.userorder.controller.model.UserOrderRequest;
 import org.sake.api.domain.userorder.controller.model.UserOrderResponse;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor

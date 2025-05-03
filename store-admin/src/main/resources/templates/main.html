@@ -58,6 +58,7 @@
             padding: 12px;
             border-bottom: 1px solid #e0e0e0;
             text-align: left;
+            vertical-align: middle; /* 수정: 수직 정렬을 중간으로 설정 */
         }
         th {
             background-color: #f5f5f5;
@@ -67,31 +68,33 @@
         tr:hover {
             background-color: #f1f1f1;
         }
-        .button-accept {
+        .button-accept, .button-deliver {
+            width: 100px; /* 버튼의 가로 길이 조정 */
             padding: 8px 12px;
-            background-color: #17a2b8;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             font-size: 14px;
             transition: background-color 0.3s ease;
+            margin-bottom: 8px; /* 버튼과 하단 선 사이의 간격 추가 */
+        }
+        .button-accept {
+            background-color: #17a2b8;
         }
         .button-accept:hover {
             background-color: #138496;
         }
         .button-deliver {
-            padding: 8px 12px;
             background-color: #6c757d;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
         }
         .button-deliver:hover {
             background-color: #5a6268;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            flex-direction: column; /* 버튼을 수직 정렬 */
         }
         /* 모달 스타일 */
         .modal {
@@ -169,19 +172,61 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="order in orders" :key="order.user_order_response.id">
-                <td>{{ order.user_order_response.id }}</td>
+            <tr>
+                <td>68</td>
                 <td>
                     <ul>
-                        <li v-for="item in order.store_menu_response_list" :key="item.id">
-                            {{ item.name }} {{ item.amount }}
-                        </li>
+                        <li>닷사이 3000</li>
+                        <li>홋카이산 2000</li>
                     </ul>
                 </td>
-                <td>{{ order.user_order_response.status }}</td>
+                <td>ORDER</td>
                 <td class="button-container">
-                    <button class="button-accept" @click="acceptOrder(order)">주문수락</button>
-                    <button class="button-deliver" @click="startDelivery(order)">배달시작</button>
+                    <button class="button-accept">주문수락</button>
+                    <button class="button-deliver">배달시작</button>
+                </td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>
+                    <ul>
+                        <li>히메노아 6500</li>
+                        <li>준마이다이긴조 2000</li>
+                    </ul>
+                </td>
+                <td>ORDER</td>
+                <td class="button-container">
+                    <button class="button-accept">주문수락</button>
+                    <button class="button-deliver">배달시작</button>
+                </td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>
+                    <ul>
+                        <li>닷사이 3000</li>
+                        <li>이토엔 1000</li>
+                        <li>긴죠 4500</li>
+                    </ul>
+                </td>
+                <td>ORDER</td>
+                <td class="button-container">
+                    <button class="button-accept">주문수락</button>
+                    <button class="button-deliver">배달시작</button>
+                </td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>
+                    <ul>
+                        <li>준마이다이긴조 2000</li>
+                        <li>간바레 오또상 1500</li>
+                    </ul>
+                </td>
+                <td>ORDER</td>
+                <td class="button-container">
+                    <button class="button-accept">주문수락</button>
+                    <button class="button-deliver">배달시작</button>
                 </td>
             </tr>
             </tbody>

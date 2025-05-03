@@ -1,5 +1,6 @@
 package org.sake.api.domain.store.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.sake.api.common.api.Api;
 import org.sake.api.domain.store.business.StoreBusiness;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController

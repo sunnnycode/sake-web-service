@@ -21,10 +21,10 @@ public class TokenConverter {
         Objects.requireNonNull(refreshToken, ()->{throw new ApiException(ErrorCode.NULL_POINT);});
 
         return TokenResponse.builder()
-                .accessToken(accessToken.getToken())
-                .accessTokenExpiredAt(accessToken.getExpiredAt())
-                .refreshToken(refreshToken.getToken())
-                .refreshTokenExpiredAt(refreshToken.getExpiredAt())
+                .accessToken(accessToken.getAccessToken())
+                .accessTokenExpiredAt(accessToken.getAccessTokenExpiredAt())
+                .refreshToken(refreshToken.getRefreshToken())
+                .refreshTokenExpiredAt(refreshToken.getRefreshTokenExpiredAt())
                 .build();
     }
 }

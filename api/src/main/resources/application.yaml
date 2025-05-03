@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: admin123!@#
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
 
   jpa:
     database: mysql
@@ -11,23 +11,23 @@ spring:
     properties:
       format_sql: true
       dialect: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: validate
-  # 깃허브에 절대 공유 X
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://database-sakesage.c3suqkcwcjd4.ap-northeast-2.rds.amazonaws.com:3306/sakesage?serverTimezone=Asia/Seoul&characterEncoding=UTF-8 #aws
-    #jdbc:mysql://localhost:3306/sake?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
-    username: admin
-    password: tkzptkzptkrp24 #사케사케사게24 -영어
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
 token:
     secret:
-      key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+      key: ${TOKEN_SECRET_KEY}
     access-token:
-      plus-hour: 1
+      plus-hour: ${TOKEN_ACCESS_PLUS_HOUR}
     refresh-token:
-      plus-hour: 12
+      plus-hour: ${TOKEN_REFRESH_PLUS_HOUR}
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
 
 
 
